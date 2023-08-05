@@ -1,0 +1,46 @@
+{
+  "private": true,
+  "sideEffects": false,
+  "scripts": {
+    "build": "remix build",
+    "dev": "remix dev",
+    "start": "remix-serve build",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@remix-run/css-bundle": "^1.19.2",
+    "@remix-run/node": "^1.19.2",
+    "@remix-run/react": "^1.19.2",
+    "@remix-run/serve": "^1.19.2",
+    "isbot": "^3.6.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "readable-stream": "^3.1.1"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^1.19.2",
+    "@remix-run/eslint-config": "^1.19.2",
+    "@types/react": "^18.0.35",
+    "@types/react-dom": "^18.0.11",
+    "eslint": "^8.38.0",
+    "typescript": "^5.0.4",
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-iconfont": "^10.0.2",
+    "gulp-iconfont-css": "^3.0.0",
+    "gulp-less": "^4.0.1",
+    "gulp-less-glob": "^1.0.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.1",
+    "gulp-util": "^3.0.8",
+    "less-plugin-glob": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
