@@ -23,7 +23,9 @@
               }
 
 .icon-char(@filename) {
-@arrow: "\E001";
+@h2: "\E001";
+@square-check-solid: "\E002";
+@turn-down-left: "\E003";
 
 content: @@filename;
 }
@@ -49,7 +51,13 @@ content: @@filename;
 }
 }
 
-.icon-arrow {
-.icon(arrow);
+.icon-h2 {
+.icon(h2);
+}
+.icon-square-check-solid {
+.icon(square-check-solid);
+}
+.icon-turn-down-left {
+.icon(turn-down-left);
 }
 
