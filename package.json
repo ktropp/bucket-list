@@ -12,19 +12,20 @@
     "@remix-run/node": "^1.19.2",
     "@remix-run/react": "^1.19.2",
     "@remix-run/serve": "^1.19.2",
+    "@remix-validated-form/with-zod": "^2.0.6",
     "isbot": "^3.6.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "readable-stream": "^3.1.1"
+    "readable-stream": "^3.1.1",
+    "zod-form-data": "^2.0.1"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.19.2",
     "@remix-run/eslint-config": "^1.19.2",
     "@types/react": "^18.0.35",
     "@types/react-dom": "^18.0.11",
-    "eslint": "^8.38.0",
-    "typescript": "^5.0.4",
     "browser-sync": "^2.26.3",
+    "eslint": "^8.38.0",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-clean-css": "^4.0.0",
@@ -38,7 +39,8 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.1",
     "gulp-util": "^3.0.8",
-    "less-plugin-glob": "^3.0.0"
+    "less-plugin-glob": "^3.0.0",
+    "typescript": "^5.0.4"
   },
   "engines": {
     "node": ">=14.0.0"

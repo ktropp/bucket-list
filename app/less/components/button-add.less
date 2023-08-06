@@ -12,7 +12,7 @@
     }
   }
   
-  &.adding{
+  &.toggled{
     .button-add__btn{
       display: none;
     }
@@ -64,12 +64,16 @@
 
     & > input{
       height: 50px;
-      border: 0;
       padding: 0.2rem 1rem;
       flex: 1 0 auto;
+      border: 1px solid @white;
 
       &:focus{
         outline: 0;
+      }
+
+      &.error{
+        border-color: @error;
       }
     }
 
@@ -80,6 +84,12 @@
         position: relative;
         cursor: pointer;
         margin-bottom: 0;
+
+        &:first-child{
+          .checkmark{
+            border-left: 0;
+          }
+        }
 
         input{
           position: absolute;
@@ -96,7 +106,9 @@
         }
 
         .checkmark{
-          background-color: @gray;
+          border: 1px solid @gray;
+          border-top: 0;
+          border-bottom: 0;
           height: 50px;
           width: 50px;
           display: flex;
@@ -104,8 +116,12 @@
           align-items: center;
 
           i{
-            font-size: 40px;
+            font-size: 30px;
             color: @gray_dark;
+
+            &.icon-h2{
+              font-size: 24px;
+            }
           }
         }
       }
