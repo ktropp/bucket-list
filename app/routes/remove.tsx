@@ -1,8 +1,7 @@
 import type {ActionFunction} from "@remix-run/node";
 import {redirect} from "@remix-run/node";
-import {validator} from "~/components/ButtonAdd";
+import {validator} from "~/components/ButtonRemove";
 import DataHandler from "~/helpers/DataHandler";
-import { DataLine } from "~/helpers/DataHandler";
 
 export const action: ActionFunction = async ({request}) => {
     const result = await validator.validate(
@@ -14,8 +13,7 @@ export const action: ActionFunction = async ({request}) => {
     }
 
     // insert data
-    let newLine = new DataLine(result.data.type, result.data.text);
-    DataHandler.insert(newLine, result.data.position);
+    DataHandler.remove(result.data.position);
 
     return redirect("/");
 };

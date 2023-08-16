@@ -1,18 +1,36 @@
 .button-add{
   opacity: 0;
-  visibility: hidden;
   transition: 0.3s all;
-
+  height: 33px;
+  cursor: pointer;
+  
   &.visible{
     opacity: 1;
-    visibility: visible;
+    height: 50px;
+    cursor: initial;
+    margin-top: 33px;
 
-    .button-add__btn:before{
-      display: none;
+    .button-add__btn{
+
+      button{
+        height: 50%;
+        padding: 0.4rem 2rem;
+      }
+
+      &:before{
+        display: none;
+      }
+    }
+
+    .button-add__content{
     }
   }
   
   &.toggled{
+    height: 50px;
+    margin: 0.5rem 0;
+    opacity: 1;
+
     .button-add__btn{
       display: none;
     }
@@ -37,7 +55,7 @@
       height: 1px;
       background-color: @primary;
       position: absolute;
-      top: 28px;
+      top: 18px;
       left: 0;
       z-index: 0;
     }
@@ -45,6 +63,8 @@
     button{
       z-index: 1;
       position: relative;
+      height: 33px;
+      padding: 0 2rem;
     }
 
     &__inner{

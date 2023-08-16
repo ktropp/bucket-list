@@ -23,9 +23,11 @@
               }
 
 .icon-char(@filename) {
-@h2: "\E001";
-@square-check-solid: "\E002";
-@turn-down-left: "\E003";
+@circle-xmark: "\E001";
+@h2: "\E002";
+@square-check-solid: "\E003";
+@square-regular: "\E004";
+@turn-down-left: "\E005";
 
 content: @@filename;
 }
@@ -51,11 +53,17 @@ content: @@filename;
 }
 }
 
+.icon-circle-xmark {
+.icon(circle-xmark);
+}
 .icon-h2 {
 .icon(h2);
 }
 .icon-square-check-solid {
 .icon(square-check-solid);
+}
+.icon-square-regular {
+.icon(square-regular);
 }
 .icon-turn-down-left {
 .icon(turn-down-left);

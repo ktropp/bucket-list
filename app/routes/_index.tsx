@@ -17,11 +17,14 @@ export const loader = async () => {
 };
 
 export default function Index() {
+
+  let visible = true;
+
   return (
     <div className="index">
       <h1>{appConfig.name}</h1>
-      <ButtonAdd visible="true" />
-      <BucketList />
+        <BucketList />
+        <ButtonAdd visible={visible} position="-1" />
     </div>
   );
 }

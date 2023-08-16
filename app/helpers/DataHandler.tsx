@@ -26,7 +26,11 @@ const DataHandler = {
         for (const line of this.data){
             if(line.text === '') continue;
             if (line.type === Type.Heading){
-                dataString += `***${line.text}***\n`;
+                let dashes = '';
+                for (let i = 0; i < line.text.length; i++){
+                    dashes += '-';
+                }
+                dataString += `\n${line.text}\n${dashes}\n\n`;
             } else {
                 if(line.done){
                     dataString += `*${line.text}\n`;
@@ -50,20 +54,30 @@ const DataHandler = {
         let data = [];
 
         let c = 0;
+        let i = 0;
+        console.log(list[2], list[3]);
         for (const line of list){
             let type = Type.Check;
             let done = false;
             let text = line;
+
+
+
             if(line.startsWith('*')){
                 done = true;
             }
-            if (line.startsWith('***')){
+
+            //if next line contains ---, it's a heading
+            if(list[i+1] && list[i+1].startsWith('---')){
                 type = Type.Heading;
             }
-            //remove * and *** from text
+
+            //remove * from text
             text = text.replace(/\*/g, '');
 
+            i++;
             if(text === '') continue;
+            if(text.startsWith('-')) continue;
 
             let newLine = new DataLine(type, text, done, c);
             c++;
@@ -72,10 +86,49 @@ const DataHandler = {
 
         return data;
     },
-    insert: function (newLine: DataLine){
+    insert: function (newLine: DataLine, position: number){
         this.data = this.parseData();
-        this.data.push(newLine);
+        const newData = this.data.slice(0); // copy
+
+        if(position >= 0){
+            newLine.key = position;
+            newData.splice(position, 0, newLine);
+        }else{
+            newData.push(newLine);
+        }
+
+        //reindex newData array
+        let c = 0;
+        for (const line of newData){
+            line.key = c;
+            c++;
+        }
+
+        this.data = newData;
+
         this.write();
+    },
+    remove: function(position: number){
+        this.data = this.parseData();
+
+        const newData = this.data.slice(0); // copy
+
+        newData.forEach((line, index) => {
+            if(line.key == position)
+                newData.splice(index, 1);
+        });
+
+        //reindex newData array
+        let c = 0;
+        for (const line of newData){
+            line.key = c;
+            c++;
+        }
+
+        this.data = newData;
+
+        this.write();
+
     }
 }
 

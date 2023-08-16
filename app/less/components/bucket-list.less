@@ -1,0 +1,109 @@
+.bucket-list{
+
+  &__line{
+    background-color: @white;
+    border-radius: 5px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+
+    &:hover{
+      .bucket-list__line__remove{
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &.heading{
+
+      .bucket-list__line__text{
+        .h2;
+      }
+
+      .bucket-list__line__checkbox{
+        display: none;
+      }
+    }
+
+    &.check{
+
+      &.done{
+        background-color: fade(@white, 50);
+        
+        .bucket-list__line__text:after{
+          display: block;
+        }
+      }
+    }
+
+    &__text{
+      flex: 1 0 auto;
+      position: relative;
+      margin-right: 1rem;
+
+      &:after{
+        content: "";
+        position: absolute;
+        top: 17px;
+        left: 0;
+        background-color: @gray_dark;
+        width: 100%;
+        height: 1px;
+        display: none;
+      }
+    }
+
+    &__checkbox{
+      display: flex;
+
+      .checkbox{
+        position: relative;
+        cursor: pointer;
+        margin-bottom: 0;
+        padding-right: 0.5rem;
+        margin-right: 0.5rem;
+        //border-right: 1px solid @gray;
+
+        input{
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+
+          &:checked ~ .checkmark{
+            i{
+              color: @primary;
+            }
+          }
+        }
+
+        .checkmark{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          i{
+            font-size: 30px;
+            color: @gray_dark;
+
+            &.icon-h2{
+              font-size: 24px;
+            }
+          }
+        }
+      }
+    }
+
+    &__remove{
+      .btn;
+      background-color: transparent;
+      padding: 0;
+      height: auto;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
